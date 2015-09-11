@@ -11,11 +11,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        //Include student class and create an array of students
         include('Student.php');
         $students = array();
-        foreach ($students as $student)
-            echo $student->toString();
 
+        //Create first student and add info
         $first = new Student();
         $first->surname = "Doe";
         $first->first_name = "John";
@@ -26,6 +26,7 @@ and open the template in the editor.
         $first->add_grade(55);
         $students['j123'] = $first;
 
+        //Create second student and add info
         $second = new Student();
         $second->surname = "Einstein";
         $second->first_name = "Albert";
@@ -36,6 +37,13 @@ and open the template in the editor.
         $second->add_grade(80);
         $second->add_grade(50);
         $students['a456'] = $second;
+
+        //Sort the students
+        ksort($students);
+        
+        //Print all students
+        foreach ($students as $student)
+            echo $student->toString();
         ?>
     </body>
 </html>
